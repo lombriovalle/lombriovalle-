@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lombri Ovalle · Humus Orgánico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f5f0;
+            color: #2e3b2c;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: #2b4d2e;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo-placeholder {
+            width: 70px;
+            height: 70px;
+            background: #e6dcc8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            color: #2b4d2e;
+            padding: 4px;
+            border: 3px solid #a7c5a1;
+        }
+
+        .logo-text h1 {
+            font-size: 2rem;
+            color: #f5f0e3;
+            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #d4e0c8;
+            letter-spacing: 1px;
+        }
+
+        .btn-email {
+            background: #d9b382;
+            color: #1e2f1c;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid #f5f0e3;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-email:hover {
+            background: #c9a06e;
+            transform: scale(1.03);
+        }
+
+        /* HERO con reseña */
+        .hero {
+            background: linear-gradient(135deg, #e8f0e0, #d0e0c8);
+            padding: 60px 0 50px;
+            text-align: center;
+            border-bottom: 4px solid #7a9f7a;
+        }
+
+        .hero h2 {
+            font-size: 2.6rem;
+            color: #1a3a1a;
+            margin-bottom: 12px;
+        }
+
+        .hero .subtitulo {
+            font-size: 1.2rem;
+            color: #2b4a2b;
+            margin-bottom: 25px;
+        }
+
+        .reseña {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 35px;
+            border-radius: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            border: 1px solid rgba(255,255,255,0.6);
+            text-align: left;
+        }
+
+        .reseña p {
+            font-size: 1.1rem;
+            color: #1e341e;
+            margin-bottom: 12px;
+        }
+
+        .reseña p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reseña .firma {
+            text-align: right;
+            font-style: italic;
+            color: #3d5a3d;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .reseña i {
+            color: #7a9f7a;
+        }
+
+        /* PRODUCTOS */
+        .productos {
+            padding: 60px 0;
+            background: #fcfaf7;
+        }
+
+        .productos h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 40px;
+            color: #1f3b1f;
+        }
+
+        .productos h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #7a9f7a;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .card-producto {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+            text-align: center;
+            border: 1px solid #e3dcd0;
+        }
+
+        .card-producto:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(43, 77, 46, 0.12);
+        }
+
+        .card-producto i {
+            font-size: 3rem;
+            color: #3d6b3d;
+            margin-bottom: 15px;
+        }
+
+        .card-producto h3 {
+            font-size: 1.5rem;
+            color: #1e3a1e;
+            margin-bottom: 6px;
+        }
+
+        .card-producto .precio {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2b4d2e;
+            margin: 8px 0;
+        }
+
+        .card-producto .desc {
+            color: #4d5f4a;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+        }
+
+        .btn-pedido {
+            background: #2b4d2e;
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-pedido:hover {
+            background: #1d3a1d;
+        }
+
+        /* GALERÍA */
+        .galeria {
+            padding: 60px 0;
+            background: #eef3e9;
+        }
+
+        .galeria h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            color: #1f3b1f;
+            margin-bottom: 35px;
+        }
+
+        .galeria h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #7a9f7a;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-galeria img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #dde4d4;
+            background: #f5f5ed;
+        }
+
+        .grid-galeria img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .grid-galeria .sin-imagenes {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            background: #f5f5ed;
+            border-radius: 20px;
+            color: #5a6f55;
+            border: 2px dashed #b6c9ae;
+        }
+
+        .grid-galeria .sin-imagenes i {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 10px;
+            color: #7a9f7a;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            background: #e6ede0;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-size: 2.4rem;
+            color: #1f3b1f;
+            margin-bottom: 15px;
+        }
+
+        .contacto p {
+            font-size: 1.2rem;
+            color: #2d452b;
+            margin-bottom: 25px;
+        }
+
+        .contacto .email-grande {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e3a1e;
+            background: white;
+            padding: 16px 32px;
+            border-radius: 60px;
+            display: inline-block;
+            border: 3px solid #b6cfb0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+
+        .contacto .email-grande:hover {
+            transform: scale(1.02);
+        }
+
+        .contacto .email-grande i {
+            margin-right: 14px;
+            color: #2b4d2e;
+        }
+
+        .contacto .email-grande a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1f301f;
+            color: #d4dfce;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #d9b382;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .reseña {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            .contacto .email-grande {
+                font-size: 1.2rem;
+                padding: 14px 20px;
+            }
+            .grid-galeria {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            .grid-galeria img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container header-content">
+        <div class="logo-area">
+            <!-- LOGO: pon tu imagen aquí -->
+            <img src="logo.webp" alt="Logo Lombri Ovalle" class="logo-img" />
+            <!-- Si aún no tienes el logo, usa esto:
+            <div class="logo-placeholder">
+                <span>🐛<br />Lombri<br />Ovalle</span>
+            </div>
+            -->
+            <div class="logo-text">
+                <h1>Lombri Ovalle</h1>
+                <span>HUMUS DE LOMBRIZ 100% ORGÁNICO</span>
+            </div>
+        </div>
+        <a href="mailto:lombricesovalle@gmail.com" class="btn-email">
+            <i class="fas fa-envelope"></i> Contáctanos
+        </a>
+    </div>
+</header>
+
+<!-- HERO + RESEÑA -->
+<section class="hero">
+    <div class="container">
+        <h2>🌱 Tierra viva, cosecha feliz</h2>
+        <p class="subtitulo">El mejor humus de lombriz, hecho con dedicación en Ovalle</p>
+
+        <div class="reseña">
+            <p>
+                <i class="fas fa-quote-left" style="margin-right: 6px; opacity: 0.6;"></i>
+                Nuestro humus de lombriz es un <strong>fertilizante orgánico 100% natural</strong>, 
+                rico en nutrientes esenciales, microorganismos benéficos y materia orgánica activa. 
+                Mejora la estructura del suelo, aumenta la retención de agua y potencia el crecimiento 
+                de tus plantas, flores y hortalizas.
+            </p>
+            <p>
+                <i class="fas fa-leaf" style="color: #3d6b3d;"></i> 
+                <strong>¿Por qué elegirnos?</strong> Porque cada bolsa contiene el trabajo de nuestras 
+                lombrices californianas, alimentadas con residuos vegetales seleccionados. 
+                Sin químicos, sin pesticidas, solo <strong>vida para tu tierra</strong>.
+            </p>
+            <div class="firma">
+                — Lombri Ovalle <i class="fas fa-heart" style="color: #a65a3a; font-size: 0.9rem;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="productos" id="productos">
+    <div class="container">
+        <h2>Nuestras bolsas</h2>
+        <div class="grid-productos">
+
+            <div class="card-producto">
+                <i class="fas fa-seedling"></i>
+                <h3>Bolsa 1.5 kg</h3>
+                <div class="precio">$4.500</div>
+                <p class="desc">Ideal para macetas, plantas de interior y pequeños huertos.</p>
+                <a href="mailto:lombricesovalle@gmail.com?subject=Pedido%20-%20Bolsa%201.5kg" class="btn-pedido">
+                    <i class="fas fa-shopping-cart"></i> Pedir
+                </a>
+            </div>
+
+            <div class="card-producto">
+                <i class="fas fa-tree"></i>
+                <h3>Bolsa 6 kg</h3>
+                <div class="precio">$16.000</div>
+                <p class="desc">Para jardines, árboles frutales y huertas grandes. ¡Rinde mucho!</p>
+                <a href="mailto:lombricesovalle@gmail.com?subject=Pedido%20-%20Bolsa%206kg" class="btn-pedido">
+                    <i class="fas fa-shopping-cart"></i> Pedir
+                </a>
+            </div>
+
+        </div>
+        <p style="text-align: center; margin-top: 30px; color: #3d5a3d; font-style: italic; font-size: 0.95rem;">
+            * Precios referenciales · Consulta por despacho a tu zona
+        </p>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria">
+    <div class="container">
+        <h2>📸 Galería</h2>
+        <div class="grid-galeria" id="galeria-contenedor">
+            <!-- Las imágenes se cargarán automáticamente desde la carpeta /galeria/ -->
+            <div class="sin-imagenes">
+                <i class="fas fa-images"></i>
+                <p>Cargando imágenes...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+    <div class="container">
+        <h2>✉️ Escríbenos</h2>
+        <p>¿Quieres hacer un pedido o tienes alguna consulta?<br />¡Estamos a un correo de distancia!</p>
+        <div class="email-grande">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:lombricesovalle@gmail.com">lombricesovalle@gmail.com</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>© 2026 <strong>Lombri Ovalle</strong> · Humus de lombriz 100% orgánico</p>
+        <p style="margin-top: 8px; font-size: 0.85rem;">
+            <i class="fas fa-map-pin"></i> Ovalle, Chile · 
+            <a href="mailto:lombricesovalle@gmail.com">lombricesovalle@gmail.com</a>
+        </p>
+    </div>
+</footer>
+
+<!-- SCRIPT PARA CARGAR IMÁGENES DE LA CARPETA /galeria/ -->
+<script>
+    (function cargarGaleria() {
+        const contenedor = document.getElementById('galeria-contenedor');
+        const carpeta = 'galeria/';  // <--- CAMBIA AQUÍ si usas otra carpeta
+        
+        // Extensiones soportadas
+        const extensiones = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'];
+        
+        // Nombres de archivo que buscará (puedes ampliar esta lista)
+        const nombresBase = [
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+            'galeria1', 'galeria2', 'galeria3', 'galeria4', 'galeria5',
+            'foto1', 'foto2', 'foto3', 'foto4', 'foto5',
+            'imagen1', 'imagen2', 'imagen3', 'imagen4', 'imagen5'
+        ];
+
+        // También puedes definir una lista manual de imágenes (descomenta y usa esto si prefieres)
+        /*
+        const imagenesManual = [
+            'galeria/mi-foto-1.jpg',
+            'galeria/mi-foto-2.png',
+            'galeria/otra-imagen.webp'
+        ];
+        */
+
+        // Si usas lista manual, ignora el resto
+        // const usarListaManual = false;  // Cambia a true para usar lista manual
+
+        function cargarDesdeListaManual() {
+            // Si prefieres cargar imágenes manualmente, usa esta función
+            const imagenesManual = [
+                // 'galeria/tu-foto-1.jpg',
+                // 'galeria/tu-foto-2.png',
+            ];
+            if (imagenesManual.length === 0) {
+                mostrarMensajeSinImagenes();
+                return;
+            }
+            let html = '';
+            imagenesManual.forEach(src => {
+                html += `<img src="${src}" alt="Humus Lombri Ovalle" loading="lazy" />`;
+            });
+            contenedor.innerHTML = html;
+        }
+
+        function mostrarMensajeSinImagenes() {
+            contenedor.innerHTML = `
+                <div class="sin-imagenes">
+                    <i class="fas fa-images"></i>
+                    <p>📁 Sube tus imágenes a la carpeta <strong>/galeria/</strong></p>
+                    <p style="font-size: 0.85rem; margin-top: 6px;">
+                        Formatos: .jpg, .png, .webp, .gif, .avif
+                    </p>
+                    <p style="font-size: 0.85rem; margin-top: 10px; background: #e8ede3; padding: 8px 16px; border-radius: 30px; display: inline-block;">
+                        <i class="fas fa-lightbulb"></i> Nombra tus fotos como: 1.jpg, 2.png, galeria1.webp, etc.
+                    </p>
+                </div>
+            `;
+        }
+
+        // -------- MÉTODO AUTOMÁTICO (detecta imágenes en la carpeta) --------
+        function cargarAutomatico() {
+            let promesas = [];
+            let imagenesEncontradas = [];
+
+            nombresBase.forEach(nombre => {
+                extensiones.forEach(ext => {
+                    const src = carpeta + nombre + ext;
+                    const img = new Image();
+                    const promesa = new Promise((resolve) => {
+                        img.onload = () => resolve(src);
+                        img.onerror = () => resolve(null);
+                        // Timeout para no esperar demasiado
+                        setTimeout(() => resolve(null), 1500);
+                    });
+                    promesas.push(promesa);
+                });
+            });
+
+            Promise.all(promesas).then(resultados => {
+                const validas = resultados.filter(src => src !== null);
+                const unicas = [...new Set(validas)];
+
+                if (unicas.length === 0) {
+                    mostrarMensajeSinImagenes();
+                    return;
+                }
+
+                let html = '';
+                unicas.forEach(src => {
+                    html += `<img src="${src}" alt="Humus Lombri Ovalle" loading="lazy" />`;
+                });
+                contenedor.innerHTML = html;
+            });
+        }
+
+        // -------- Decidir qué método usar --------
+        // Si quieres usar lista manual, cambia esto a true
+        const usarListaManual = false;
+
+        if (usarListaManual) {
+            cargarDesdeListaManual();
+        } else {
+            cargarAutomatico();
+        }
+
+    })();
+</script>
+
+</body>
+</html>
