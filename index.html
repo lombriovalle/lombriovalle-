@@ -253,68 +253,6 @@
             background: #1d3a1d;
         }
 
-        /* GALERÍA */
-        .galeria {
-            padding: 60px 0;
-            background: #eef3e9;
-        }
-
-        .galeria h2 {
-            text-align: center;
-            font-size: 2.4rem;
-            color: #1f3b1f;
-            margin-bottom: 35px;
-        }
-
-        .galeria h2::after {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 4px;
-            background: #7a9f7a;
-            margin: 10px auto 0;
-            border-radius: 4px;
-        }
-
-        .grid-galeria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .grid-galeria img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid #dde4d4;
-            background: #f5f5ed;
-        }
-
-        .grid-galeria img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .grid-galeria .sin-imagenes {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 40px;
-            background: #f5f5ed;
-            border-radius: 20px;
-            color: #5a6f55;
-            border: 2px dashed #b6c9ae;
-        }
-
-        .grid-galeria .sin-imagenes i {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 10px;
-            color: #7a9f7a;
-        }
-
         /* CONTACTO */
         .contacto {
             background: #e6ede0;
@@ -398,12 +336,6 @@
                 font-size: 1.2rem;
                 padding: 14px 20px;
             }
-            .grid-galeria {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            }
-            .grid-galeria img {
-                height: 150px;
-            }
         }
     </style>
 </head>
@@ -414,12 +346,10 @@
     <div class="container header-content">
         <div class="logo-area">
             <!-- LOGO: pon tu imagen aquí -->
-            <img src="1787170324949.png" alt="Logo Lombri Ovalle" class="logo-img" />
-            <!-- Si aún no tienes el logo, usa esto:
-            <div class="logo-placeholder">
+            <img src="logo.webp" alt="Logo Lombri Ovalle" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="logo-placeholder" style="display:none;">
                 <span>🐛<br />Lombri<br />Ovalle</span>
             </div>
-            -->
             <div class="logo-text">
                 <h1>Lombri Ovalle</h1>
                 <span>HUMUS DE LOMBRIZ 100% ORGÁNICO</span>
@@ -491,20 +421,6 @@
     </div>
 </section>
 
-<!-- GALERÍA -->
-<section class="galeria" id="galeria">
-    <div class="container">
-        <h2>📸 Galería</h2>
-        <div class="grid-galeria" id="galeria-contenedor">
-            <!-- Las imágenes se cargarán automáticamente desde la carpeta /galeria/ -->
-            <div class="sin-imagenes">
-                <i class="fas fa-images"></i>
-                <p>Cargando imágenes...</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
     <div class="container">
@@ -522,121 +438,11 @@
     <div class="container">
         <p>© 2026 <strong>Lombri Ovalle</strong> · Humus de lombriz 100% orgánico</p>
         <p style="margin-top: 8px; font-size: 0.85rem;">
-            <i class="fas fa-map-pin"></i> Santiago, Chile · 
+            <i class="fas fa-map-pin"></i> Isla de Maipo, Chile · 
             <a href="mailto:lombricesovalle@gmail.com">lombricesovalle@gmail.com</a>
         </p>
     </div>
 </footer>
-
-<!-- SCRIPT PARA CARGAR IMÁGENES DE LA CARPETA /galeria/ -->
-<script>
-    (function cargarGaleria() {
-        const contenedor = document.getElementById('galeria-contenedor');
-        const carpeta = 'galeria/';  // <--- CAMBIA AQUÍ si usas otra carpeta
-        
-        // Extensiones soportadas
-        const extensiones = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'];
-        
-        // Nombres de archivo que buscará (puedes ampliar esta lista)
-        const nombresBase = [
-            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-            'galeria1', 'galeria2', 'galeria3', 'galeria4', 'galeria5',
-            'foto1', 'foto2', 'foto3', 'foto4', 'foto5',
-            'imagen1', 'imagen2', 'imagen3', 'imagen4', 'imagen5'
-        ];
-
-        // También puedes definir una lista manual de imágenes (descomenta y usa esto si prefieres)
-        /*
-        const imagenesManual = [
-            'galeria/mi-foto-1.jpg',
-            'galeria/mi-foto-2.png',
-            'galeria/otra-imagen.webp'
-        ];
-        */
-
-        // Si usas lista manual, ignora el resto
-        // const usarListaManual = false;  // Cambia a true para usar lista manual
-
-        function cargarDesdeListaManual() {
-            // Si prefieres cargar imágenes manualmente, usa esta función
-            const imagenesManual = [
-                // 'galeria/tu-foto-1.jpg',
-                // 'galeria/tu-foto-2.png',
-            ];
-            if (imagenesManual.length === 0) {
-                mostrarMensajeSinImagenes();
-                return;
-            }
-            let html = '';
-            imagenesManual.forEach(src => {
-                html += `<img src="${src}" alt="Humus Lombri Ovalle" loading="lazy" />`;
-            });
-            contenedor.innerHTML = html;
-        }
-
-        function mostrarMensajeSinImagenes() {
-            contenedor.innerHTML = `
-                <div class="sin-imagenes">
-                    <i class="fas fa-images"></i>
-                    <p>📁 Sube tus imágenes a la carpeta <strong>/galeria/</strong></p>
-                    <p style="font-size: 0.85rem; margin-top: 6px;">
-                        Formatos: .jpg, .png, .webp, .gif, .avif
-                    </p>
-                    <p style="font-size: 0.85rem; margin-top: 10px; background: #e8ede3; padding: 8px 16px; border-radius: 30px; display: inline-block;">
-                        <i class="fas fa-lightbulb"></i> Nombra tus fotos como: 1.jpg, 2.png, galeria1.webp, etc.
-                    </p>
-                </div>
-            `;
-        }
-
-        // -------- MÉTODO AUTOMÁTICO (detecta imágenes en la carpeta) --------
-        function cargarAutomatico() {
-            let promesas = [];
-            let imagenesEncontradas = [];
-
-            nombresBase.forEach(nombre => {
-                extensiones.forEach(ext => {
-                    const src = carpeta + nombre + ext;
-                    const img = new Image();
-                    const promesa = new Promise((resolve) => {
-                        img.onload = () => resolve(src);
-                        img.onerror = () => resolve(null);
-                        // Timeout para no esperar demasiado
-                        setTimeout(() => resolve(null), 1500);
-                    });
-                    promesas.push(promesa);
-                });
-            });
-
-            Promise.all(promesas).then(resultados => {
-                const validas = resultados.filter(src => src !== null);
-                const unicas = [...new Set(validas)];
-
-                if (unicas.length === 0) {
-                    mostrarMensajeSinImagenes();
-                    return;
-                }
-
-                let html = '';
-                unicas.forEach(src => {
-                    html += `<img src="${src}" alt="Humus Lombri Ovalle" loading="lazy" />`;
-                });
-                contenedor.innerHTML = html;
-            });
-        }
-
-        // -------- Decidir qué método usar --------
-        // Si quieres usar lista manual, cambia esto a true
-        const usarListaManual = false;
-
-        if (usarListaManual) {
-            cargarDesdeListaManual();
-        } else {
-            cargarAutomatico();
-        }
-
-    })();
-</script>
 
 </body>
 </html>
